@@ -300,9 +300,6 @@ export default {
 .inputclass {
   border: 2px gray solid;
 }
-.row{
-  margin-bottom: 30px;
-}
 input {
   font-size: 30px;
   background: blue;
