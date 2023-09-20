@@ -305,6 +305,9 @@ input {
   font-size: 30px;
   background: blue;
   padding: 10px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 }
 .nome {
   color: white;
@@ -322,6 +325,11 @@ select {
   display: flex;
   height: 100vh;
   justify-content: center;
+  margin: 0 auto;
+  width: 650px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
 }
 .titulo {
   font-size: 30px;
