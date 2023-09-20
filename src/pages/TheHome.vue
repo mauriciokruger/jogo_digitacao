@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container" v-show="statusJogo == 'inicio'">
-    <h1>Jogo de digitação</h1>
+    <h1>Digite o mais rápido que puder!</h1>
     <v-row>
       <v-col>
         <v-card class="pa-5">
