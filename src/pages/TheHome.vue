@@ -25,7 +25,7 @@
         </v-card>
       </v-col>
       <v-col>
-        <v-card class="pa-5">
+        <v-card class="pa-5 h-100">
           <div class="card-body">
             <h2 class="titulo">Instruções</h2>
             <p>Esse é um jogo para ver quem digita mais rápido feito em vuezeira.</p>
@@ -39,7 +39,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col>
+      <v-col cols="12" md="6">
         <v-card class="pa-5">
           <div class="card-body">
             <h2 class="titulo">Frases</h2>
@@ -64,7 +64,7 @@
           </div>
         </v-card>
       </v-col>
-      <v-col>
+      <v-col cols="12" md="6">
         <v-card class="pa-5">
           <div class="card-body">
             <h2 class="titulo">Top 15</h2>
@@ -338,5 +338,8 @@ select {
 }
 .small {
   font-size: 18px;
+}
+.h-100 {
+  height: 100%;
 }
 </style>
