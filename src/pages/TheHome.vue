@@ -2,27 +2,27 @@
   <div>
     <div class="container" v-show="statusJogo == 'inicio'">
     <h1>Jogo de digitação</h1>
-    <v-row align="center">
+    <v-row>
       <v-col>
-        <div class="card">
+        <v-card class="pa-5">
           <div class="card-body">
             <h2 class="titulo">Iniciar jogo</h2>
             <form v-on:submit.prevent="iniciaJogo">
-              <div class="row">
-                <div class="col">
-                  <input ref="focar" v-model="jogador" placeholder="Nome" class="form-control nome" />
-                </div>
-                <div class="col">
-                  <select v-model="dificuldade" class="form-control">
+              <v-row>
+                <v-col>
+                  <input ref="focar" v-model="jogador" placeholder="Nome" class="inputclass nome" />
+                </v-col>
+                <v-col>
+                  <p>Selecione a dificuldade</p>
+                  <select v-model="dificuldade" class="inputclass select">
                     <option v-for="(dificuldade, index) in dificuldades" :value="index" :key="index">{{ dificuldade.nome }}</option>
                   </select>
-                </div>
-
-              </div>
+                </v-col>
+              </v-row>
             </form>
             <p class="small">Digite seu nome e aperte enter para começar!</p>
           </div>
-        </div>
+        </v-card>
       </v-col>
       <v-col>
         <v-card class="pa-5">
@@ -97,14 +97,14 @@
     <v-card class="pa-5">
       <div>
         <v-row justify="center">
-          <v-col class="text-center">
+          <v-col cols="12" class="text-center">
             <h2 class="titulo text-center mb-3"><b>{{ fraseAtual.texto }}</b></h2>
-            <input class="form-control" onpaste="return false;" v-focus id="texto" ref="texto" :keyup="verificaDigitacao" :class="classeStatus" v-model="digitado">
+            <input class="inputclass" onpaste="return false;" v-focus id="texto" ref="texto" :keyup="verificaDigitacao" :class="classeStatus" v-model="digitado">
           </v-col>
-          <v-col md="4">
+          <v-col cols="12" class="text-center area_dados">
             <p>Fase <b>{{ fase }}/{{ frases.length }}</b></p>
             <p>Pontos: <b>{{ pontuacao | formatNumber }}</b></p>
-            <p><span class="oi oi-clock"></span> <b>{{ cronometro }}</b></p>
+            <p :class="cronometro < 1000 ? 'texto-red' : ''"><v-icon>timer</v-icon> <b>{{ cronometro }}</b></p>
           </v-col>
         </v-row>
       </div>
@@ -122,7 +122,7 @@ export default {
       dificuldade: 0,
       timer: '',
       jogador: '',
-      classeStatus: 'form-control-info',
+      classeStatus: 'inputclass-info',
       pontuacao: 0,
       cronometro: 0,
       statusJogo: 'inicio',
@@ -158,7 +158,7 @@ export default {
       if (this.digitado.length > 1) {
         if (this.digitado === this.fraseAtual.texto) {
           // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-          this.classeStatus = 'form-control-success'
+          this.classeStatus = 'inputclass-success'
           // eslint-disable-next-line vue/no-side-effects-in-computed-properties
           this.digitado = ''
           this.paraTimer()
@@ -170,7 +170,7 @@ export default {
             this.dificuldadeAtual.modificador
           if (this.fase < this.frases.length) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.classeStatus = 'form-control-info'
+            this.classeStatus = 'inputclass-info'
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
             this.fase++
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
@@ -185,10 +185,10 @@ export default {
             this.digitado === this.fraseAtual.texto.substr(0, this.digitado.length)
           ) {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.classeStatus = 'form-control-success'
+            this.classeStatus = 'inputclass-success'
           } else {
             // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-            this.classeStatus = 'form-control-danger'
+            this.classeStatus = 'inputclass-danger'
           }
         }
       }
@@ -239,6 +239,10 @@ export default {
         todosPlacares.push(pontuacaoAtual)
         console.log(todosPlacares)
         localStorage.setItem('placar', JSON.stringify(todosPlacares))
+        this.$root.SnackControl.open(this, {
+          text: 'Parabéns, você conseguiu!',
+          color: 'success'
+        })
       }
       this.jogador = ''
       this.statusJogo = 'inicio'
@@ -279,17 +283,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-control-success:focus{
-  background-color: #dff0d8;
-  border-color: #d0e9c6;
+.inputclass-success:focus{
+  background-color: #9bee7a;
+  border-color: #4cfc07;
 }
-.form-control-danger:focus{
-  background-color: #f2dede;
-  border-color: #ebcccc;
+.inputclass-danger:focus{
+  background-color: #f5a4a4;
+  border-color: #f71a1a;
 }
-.form-control-info:focus{
-  background-color: #d9edf7;
-  border-color: #bcdff1;
+.inputclass-info:focus{
+  background-color: #a2daf7;
+  border-color: #18aaf3;
+}
+.inputclass {
+  border: 2px gray solid;
 }
 .row{
   margin-bottom: 30px;
@@ -318,5 +325,15 @@ select {
 }
 .titulo {
   font-size: 30px;
+}
+.area_dados {
+  font-size: 20px;
+}
+.select {
+  appearance: auto!important;
+  min-width: 200px;
+}
+.texto-red {
+  color: red!important;
 }
 </style>
