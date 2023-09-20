@@ -9,10 +9,10 @@
             <h2 class="titulo">Iniciar jogo</h2>
             <form v-on:submit.prevent="iniciaJogo">
               <v-row>
-                <v-col>
+                <v-col cols="12">
                   <input ref="focar" v-model="jogador" placeholder="Nome" class="inputclass nome" />
                 </v-col>
-                <v-col>
+                <v-col cols="12">
                   <p>Selecione a dificuldade</p>
                   <select v-model="dificuldade" class="inputclass select">
                     <option v-for="(dificuldade, index) in dificuldades" :value="index" :key="index">{{ dificuldade.nome }}</option>
