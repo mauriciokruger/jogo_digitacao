@@ -135,9 +135,9 @@ export default {
         { texto: 'Bacon é vida', tempo: 400 },
         { texto: 'Papibaquígrafo', tempo: 400 },
         { texto: 'Ninho de mafagafos', tempo: 450 },
-        { texto: 'Esse jogo é outra coisa', tempo: 450 },
+        { texto: 'Esse jogo é muito dahora', tempo: 450 },
         { texto: 'Três pratos de trigo para três tigres tristes', tempo: 500 },
-        { texto: 'Quem chegou aqui é topson', tempo: 500 },
+        { texto: 'Quem chegou até aqui é bonzão', tempo: 500 },
         { texto: 'Falta só essa frase para terminar tudo', tempo: 500 }
       ],
       dificuldades: [
