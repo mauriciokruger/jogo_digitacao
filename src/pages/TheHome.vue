@@ -240,7 +240,7 @@ export default {
         console.log(todosPlacares)
         localStorage.setItem('placar', JSON.stringify(todosPlacares))
         this.$root.SnackControl.open(this, {
-          text: 'Parabéns, você conseguiu!',
+          text: 'Fim de jogo!',
           color: 'success'
         })
       }
@@ -273,6 +273,10 @@ export default {
     }
   },
   created () {
+    this.$root.SnackControl.open(this, {
+          text: 'Fim de jogo!',
+          color: 'success'
+        })
     let getPlacar = JSON.parse(localStorage.getItem('placar'))
     if (getPlacar) {
       this.placarTodo = JSON.parse(localStorage.getItem('placar'))

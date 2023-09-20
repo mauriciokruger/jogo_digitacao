@@ -40,3 +40,10 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.v-snack__content {
+  font-size: 40px!important;
+  font-weight: bold!important;
+  padding: 20px 16px!important;
+}
+</style>
