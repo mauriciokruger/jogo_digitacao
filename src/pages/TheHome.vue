@@ -30,9 +30,11 @@
             <h2 class="titulo">Instruções</h2>
             <p>Esse é um jogo para ver quem digita mais rápido feito em vuezeira.</p>
             <ul class="list-group list-ordered">
-              <ol class="list-group-item list-group-item-secondary">1. Digite o nome do jogador e pressione enter parainiciar.</ol>
-              <ol class="list-group-item list-group-item-secondary">2. Vá digitando as frases que aparecem.</ol>
-              <ol class="list-group-item list-group-item-secondary">3. Quanto mais rápido e mais frases digitar mais pontos fará.</ol>
+              <ol class="list-group-item list-group-item-secondary">1. Digite o nome do jogador e pressione enter para iniciar.</ol>
+              <ol class="list-group-item list-group-item-secondary">2. Prepare seus dedos!</ol>
+              <ol class="list-group-item list-group-item-secondary">3. Vá digitando as frases que aparecem.</ol>
+              <ol class="list-group-item list-group-item-secondary">4. Quanto mais rápido e mais frases digitar mais pontos fará.</ol>
+              <ol class="list-group-item list-group-item-secondary">5. Após o tempo se esgotar, dependendo da sua pontuação você estará na lista de top 15.</ol>
             </ul>
           </div>
         </v-card>
