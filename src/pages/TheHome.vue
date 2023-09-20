@@ -10,7 +10,7 @@
             <form v-on:submit.prevent="iniciaJogo">
               <v-row>
                 <v-col cols="12">
-                  <input ref="focar" v-model="jogador" placeholder="Nome" class="inputclass nome" />
+                  <input ref="focar" v-model="jogador" placeholder="Digite seu nome" class="inputclass nome" />
                 </v-col>
                 <v-col cols="12">
                   <p>Selecione a dificuldade</p>
@@ -273,10 +273,6 @@ export default {
     }
   },
   created () {
-    this.$root.SnackControl.open(this, {
-          text: 'Fim de jogo!',
-          color: 'success'
-        })
     let getPlacar = JSON.parse(localStorage.getItem('placar'))
     if (getPlacar) {
       this.placarTodo = JSON.parse(localStorage.getItem('placar'))
@@ -339,5 +335,8 @@ select {
 }
 .texto-red {
   color: red!important;
+}
+.small {
+  font-size: 18px;
 }
 </style>
