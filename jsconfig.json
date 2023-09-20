@@ -1,0 +1,12 @@
+{   "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}
