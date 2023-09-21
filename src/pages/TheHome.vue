@@ -69,7 +69,51 @@
       <v-col cols="12" md="6">
         <v-card class="pa-5">
           <div class="card-body">
-            <h2 class="titulo">Top 15</h2>
+            <v-row>
+              <v-col cols="12" md="6">
+                <h2 class="titulo">Top 15</h2>
+              </v-col>
+              <v-col cols="12" md="6" class="text-md-right">
+                <v-tooltip top>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn v-bind="attrs" v-on="on" @click="dialogClear = true">
+                      <v-icon>delete_forever</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Limpar pontuação</span>
+                </v-tooltip>
+              </v-col>
+            </v-row>
+            <v-dialog
+              v-model="dialogClear"
+              max-width="400"
+            >
+              <v-card class="card_dialog">
+                <div class="text-center title_dialog">
+                  Tem certeza que deseja limpar?
+                </div>
+                <v-row
+                  class="border_dialog"
+                  align="center"
+                  justify="space-between"
+                >
+                  <v-btn
+                    color="primary"
+                    class="ui-btn-clean btn_dialog"
+                    @click="dialogClear = false"
+                  >
+                    Não
+                  </v-btn>
+                  <v-btn
+                    color="secondary"
+                    class="ui-btn-clean btn_dialog"
+                    @click="limparPontuacao()"
+                  >
+                    Sim
+                  </v-btn>
+                </v-row>
+              </v-card>
+            </v-dialog>
             <v-simple-table>
               <template v-slot:default>
                 <thead>
@@ -122,6 +166,7 @@ export default {
       fase: 1,
       digitado: '',
       dificuldade: 0,
+      dialogClear: false,
       timer: '',
       jogador: '',
       classeStatus: 'inputclass-info',
@@ -203,6 +248,12 @@ export default {
     }
   },
   methods: {
+    limparPontuacao: function () {
+      localStorage.removeItem('placar')
+      this.placarTodo = []
+      this.dialogClear = false
+      window.location.reload()
+    },
     iniciaJogo: function () {
       if (this.jogador !== '') {
         this.statusJogo = 'jogando'
@@ -364,5 +415,17 @@ select {
 }
 .h-100 {
   height: 100%;
+}
+.title_dialog {
+  font-size: 26px;
+}
+.card_dialog {
+  background: #000;
+  padding: 15px;
+}
+.border_dialog {
+  border-top: 1px #7e7e7e solid;
+  margin-top: 5px;
+  padding: 15px 15px 0 15px;
 }
 </style>
