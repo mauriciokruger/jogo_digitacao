@@ -236,11 +236,23 @@ export default {
           fase: this.fase,
           dificuldade: this.dificuldadeAtual.nome
         }
-        console.log(pontuacaoAtual)
         let todosPlacares = this.placarTodo
-        todosPlacares.push(pontuacaoAtual)
-        console.log(todosPlacares)
-        localStorage.setItem('placar', JSON.stringify(todosPlacares))
+        let achou = false
+        todosPlacares.filter((item) => {
+          if (item.nome === this.jogador) {
+            if (this.pontuacao > item.pontos) {
+              item.pontos = this.pontuacao
+              item.fase = this.fase
+            }
+            achou = true
+          }
+        })
+        if (achou) {
+          localStorage.setItem('placar', JSON.stringify(todosPlacares))
+        } else {
+          todosPlacares.push(pontuacaoAtual)
+          localStorage.setItem('placar', JSON.stringify(todosPlacares))
+        }
         this.$root.SnackControl.open(this, {
           text: 'Fim de jogo!',
           color: 'success'
