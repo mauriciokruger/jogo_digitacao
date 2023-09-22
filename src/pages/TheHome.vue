@@ -28,7 +28,7 @@
         <v-card class="pa-5 h-100">
           <div class="card-body">
             <h2 class="titulo">Instruções</h2>
-            <p>Esse é um jogo para ver quem digita mais rápido feito em vuezeira.</p>
+            <p>Esse é um jogo para ver quem digita mais rápido feito em javascript :D</p>
             <ul class="list-group list-ordered">
               <ol class="list-group-item list-group-item-secondary">1. Digite o nome do jogador e pressione enter para iniciar.</ol>
               <ol class="list-group-item list-group-item-secondary">2. Prepare seus dedos!</ol>
