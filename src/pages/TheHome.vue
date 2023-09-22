@@ -127,7 +127,7 @@
                 <tbody>
                   <tr v-for="(item, j) in filterPlacar(dificuldadeAtual.nome)" :key="j">
                     <td>{{ ++j }}</td>
-                    <td>{{ item.nome }}</td>
+                    <td class="list_name">{{ item.nome }}</td>
                     <td>{{ item.fase }}</td>
                     <td>{{ item.pontos | formatNumber }}</td>
                   </tr>
@@ -282,7 +282,7 @@ export default {
       clearInterval(this.timer)
       if (this.pontuacao > 0) {
         var pontuacaoAtual = {
-          nome: this.jogador,
+          nome: this.jogador.toLowerCase(),
           pontos: this.pontuacao,
           fase: this.fase,
           dificuldade: this.dificuldadeAtual.nome
@@ -290,7 +290,7 @@ export default {
         let todosPlacares = this.placarTodo
         let achou = false
         todosPlacares.filter((item) => {
-          if (item.nome === this.jogador) {
+          if (item.nome === this.jogador.toLowerCase()) {
             if (this.pontuacao > item.pontos) {
               item.pontos = this.pontuacao
               item.fase = this.fase
@@ -427,5 +427,8 @@ select {
   border-top: 1px #7e7e7e solid;
   margin-top: 5px;
   padding: 15px 15px 0 15px;
+}
+.list_name {
+  text-transform: capitalize;
 }
 </style>
