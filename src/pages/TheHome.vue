@@ -188,7 +188,7 @@ export default {
         { texto: 'Falta só essa frase para terminar tudo', tempo: 500 }
       ],
       dificuldades: [
-        { nome: 'Noob', modificador: 0.01, tempoAdicional: 3000 },
+        { nome: 'Iniciante', modificador: 0.01, tempoAdicional: 3000 },
         { nome: 'Fácil', modificador: 0.5, tempoAdicional: 1000 },
         { nome: 'Médio', modificador: 2, tempoAdicional: 500 },
         { nome: 'Difícil', modificador: 5, tempoAdicional: 0 }
