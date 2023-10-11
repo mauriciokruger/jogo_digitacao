@@ -1,6 +1,8 @@
 <h1 align="center">Jogo de digitação</h1>
 
 > Jogo de digitação, seja rápido :)
+>
+> Você pode jogar [https://jogo-digitacao-mauriciokruger.vercel.app/](Clicando aqui)
 
 ## Build Setup
 
