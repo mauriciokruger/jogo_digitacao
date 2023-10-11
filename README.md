@@ -2,7 +2,7 @@
 
 > Jogo de digitação, seja rápido :)
 >
-> Você pode jogar [https://jogo-digitacao-mauriciokruger.vercel.app/](Clicando aqui)
+> Você pode jogar [Clicando aqui](https://jogo-digitacao-mauriciokruger.vercel.app/)
 
 ## Build Setup
 
